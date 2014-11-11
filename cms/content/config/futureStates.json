@@ -1,0 +1,10 @@
+[
+    {
+        "stateName": "admin",
+        "urlPrefix": "/admin",
+        "type": "module",
+        "src": "modules/admin/module.js",
+        "states": "modules/admin/futureStates.json",
+        "files": ["modules/admin/css/admin.css"]
+    }
+]

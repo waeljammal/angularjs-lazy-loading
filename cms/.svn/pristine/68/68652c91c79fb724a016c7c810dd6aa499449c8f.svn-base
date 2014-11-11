@@ -1,0 +1,20 @@
+{
+  "name": "ui-router-extras-pages",
+  "dependencies": {
+    "angular": "latest",
+    "angular-ui-router": "latest",
+    "angular-bootstrap": "latest",
+    "bootstrap": "latest",
+    "lodash": "latest",
+    "ui-router-extras": "latest",
+    "requirejs": "latest",
+    "angularAMD": "latest",
+    "d3": "latest",
+    "ngAnimate": "latest",
+    "oclazyload": "latest",
+    "underscore": "latest",
+    "jquery-ui": "latest",
+    "angular-sanitize": "latest",
+    "angular-resource": "latest"
+  }
+}
