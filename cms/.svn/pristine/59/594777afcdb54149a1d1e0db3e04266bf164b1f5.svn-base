@@ -1,4 +1,0 @@
-dashboard
-<div ng-controller="DashboardController">{{message}}</div>
-
-<div ui-view></div>
