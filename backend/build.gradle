@@ -1,0 +1,58 @@
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: 'spring-boot'
+apply plugin: 'tomcat'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+ext {
+    hibernateVersion="4.3.6.Final"
+}
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.6.RELEASE")
+        classpath("org.gradle.api.plugins:gradle-tomcat-plugin:1.2.3")
+    }
+}
+
+dependencies {
+    compile 'org.hsqldb:hsqldb:2.3.0'
+
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework:spring-test:4.0.7.RELEASE"
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+    compile "org.codehaus.jackson:jackson-core-asl:1.1.0"
+    compile "mysql:mysql-connector-java:5.1.29"
+
+    def tomcatVersion = '7.0.11'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}", "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
+
+war {
+    webXml = file('src/main/webapp/META-INF/web.xml')
+}
+
+tomcat {
+    httpPort = 8090
+}

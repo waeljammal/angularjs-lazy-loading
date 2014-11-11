@@ -1,3 +1,0 @@
-<h3>Lazy Loaded Controller and Template</h3>
-<div>data in scope from lazy controller:</div>
-{{$message}}
