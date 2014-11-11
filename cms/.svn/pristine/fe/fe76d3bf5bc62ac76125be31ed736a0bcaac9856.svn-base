@@ -1,0 +1,52 @@
+/**
+ * Created by Wael Jammal on 08/10/2014.
+ */
+define([
+    'angular',
+    'users/module',
+    'angular-resource'
+], function(angular) {
+
+    'use strict';
+
+    var users = angular.module('users');
+
+    users.factory( 'User', [ '$resource', function( $resource ) {
+        console.log("Loaded Service - users ");
+
+        this.createUser = function ( user, scope ) {
+            var User = $resource('/users/new');
+            User.save(user, function(response){
+                scope.message = response.message;
+            });
+        }
+
+        this.getUser = function ( id, scope ) {
+            var User = $resource('/users/:userId', {userId:'@userId'});
+            User.get( {userId:id}, function(user){
+                scope.user = user;
+            })
+        }
+
+        this.getUsers = function( scope ) {
+            var Users = $resource('/users/all');
+            Users.query(function(users){
+                scope.users = users;
+            });
+        }
+    }]);
+
+    users.factory( 'Role', [ '$resource', function( $resource ) {
+        console.log("Loaded Service - user roles ");
+
+        var roles = $resource('http://localhost:8080/roles/:id',
+            {Id: "@Id" },
+            {
+                'query': {method: 'GET', isArray: true},
+                'update': {method: 'PUT'}
+            }
+        );
+
+        return roles;
+    }]);
+});

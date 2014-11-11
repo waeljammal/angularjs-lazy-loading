@@ -1,0 +1,92 @@
+[
+    {
+        "label": "Dashboard",
+        "name": "top.dashboard",
+        "url": "/dashboard",
+        "abstract": true,
+        "templateUrl": "admin/dashboard/tpl/dashboard.html",
+        "module": "dashboard/module",
+        "icon": "glyphicon-stats",
+        "moduleStates": [
+            {
+                "label": "Stats",
+                "name": "top.dashboard.stats",
+                "abstract": false,
+                "url": "/stats",
+                "templateUrl": "admin/dashboard/tpl/stats.html",
+                "files": ["admin/dashboard/controllers/stats.js"]
+            },
+            {
+                "label": "Monitor",
+                "name": "top.dashboard.monitor",
+                "abstract": false,
+                "url": "/monitor",
+                "templateUrl": "admin/dashboard/tpl/monitor.html",
+                "files": ["admin/dashboard/controllers/monitor.js"]
+            }
+        ],
+        "files": [
+            "admin/dashboard/controllers/dashboard.js"
+        ]
+    },
+    {
+        "label": "Users",
+        "name": "top.users",
+        "url": "/users",
+        "abstract": true,
+        "templateUrl": "admin/users/tpl/users.html",
+        "module": "users/module",
+        "icon": "glyphicon-user",
+        "moduleStates": [
+            {
+                "label": "Roles",
+                "name": "top.users.roles",
+                "abstract": false,
+                "url": "/roles",
+                "templateUrl": "admin/users/tpl/roles.html",
+                "files": ["admin/users/controllers/roles.js"]
+            },
+            {
+                "label": "Manage",
+                "name": "top.users.manage",
+                "abstract": false,
+                "url": "/manage",
+                "templateUrl": "admin/users/tpl/manage.html",
+                "files": ["admin/users/controllers/manage.js"]
+            }
+        ],
+        "files": [
+            "admin/users/services/users.js"
+        ]
+    },
+    {
+        "label": "Pages",
+        "name": "top.pages",
+        "url": "/pages",
+        "abstract": true,
+        "templateUrl": "admin/pages/tpl/manage.html",
+        "module": "pages/module",
+        "icon": " glyphicon-pencil",
+        "moduleStates": [
+            {
+                "label": "Categories",
+                "name": "top.pages.categories",
+                "abstract": false,
+                "url": "/categories",
+                "templateUrl": "admin/pages/tpl/categories.html",
+                "files": ["admin/pages/controllers/categories.js"]
+            },
+            {
+                "label": "Content",
+                "name": "top.pages.content",
+                "abstract": false,
+                "url": "/content",
+                "templateUrl": "admin/pages/tpl/content.html",
+                "files": ["admin/pages/controllers/content.js"]
+            }
+        ],
+        "files": [
+            "admin/pages/controllers/pages.js"
+        ]
+    }
+]

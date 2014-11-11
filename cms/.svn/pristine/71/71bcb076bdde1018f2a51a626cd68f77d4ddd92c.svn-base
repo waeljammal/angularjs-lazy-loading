@@ -1,0 +1,26 @@
+[
+    {
+        "stateName": "admin.dashboard",
+        "urlPrefix": "/dashboard",
+        "type": "module",
+        "src": "modules/admin/module.js",
+        "states": "modules/admin-dashboard/futureStates.json",
+        "files": []
+    },
+    {
+        "stateName": "admin.dashboard.stats",
+        "urlPrefix": "/dashboard/stats",
+        "type": "module",
+        "src": "modules/admin/module.js",
+        "states": "modules/admin-dashboard/futureStates.json",
+        "files": []
+    },
+    {
+        "stateName": "admin.dashboard.realtime",
+        "urlPrefix": "/dashboard/realtime",
+        "type": "module",
+        "src": "modules/admin/module.js",
+        "states": "modules/admin-dashboard/futureStates.json",
+        "files": []
+    }
+]
